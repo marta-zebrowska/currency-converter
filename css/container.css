@@ -3,4 +3,6 @@
     margin: 0 auto;
     padding: 30px;
     text-align: center;
+    background-image: url("../images/sky.jpg");
+background-size: cover;
 }
