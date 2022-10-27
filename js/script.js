@@ -1,19 +1,19 @@
 console.log("Cześć!");
 
-let currencyElement = document.querySelector(".js-currency");
-let rateElement = document.querySelector(".js-rate");
-let formElement = document.querySelector(".js-form");
-let productElement = document.querySelector(".js-product");
-let resultElement = document.querySelector(".js-result");
-let submitElement = document.querySelector(".js-submit");
+const currencyElement = document.querySelector(".js-currency");
+const rateElement = document.querySelector(".js-rate");
+const formElement = document.querySelector(".js-form");
+const productElement = document.querySelector(".js-product");
+const resultElement = document.querySelector(".js-result");
+const submitElement = document.querySelector(".js-submit");
 
 formElement.addEventListener("submit", (event) => {
 event.preventDefault();
 
-let currency = currencyElement.value;
-let rate = rateElement.value;
+const currency = currencyElement.value;
+const rate = rateElement.value;
 
-let product = currency * rate;
+let product = currency / rate;
 
 productElement.innerText = product.toFixed(2);
 });
