@@ -1,28 +1,33 @@
-const currencyElement = document.querySelector(".js-currency");
-const rateElement = document.querySelector(".js-rate");
-const formElement = document.querySelector(".js-form");
-const productElement = document.querySelector(".js-product");
-const resultElement = document.querySelector(".js-result");
-const submitElement = document.querySelector(".js-submit");
+    const updateResultText = () => {
+      const resultElement = document.querySelector(".js-result");
+ 
+      resultElement.innerText = "Gratulacje! Posiadasz ";
+    
+    };
 
-const calculateProduct = (event) => {
-  event.preventDefault();
+    const printProduct = (event) => {
+      event.preventDefault();
+      
+      const currencyElement = document.querySelector(".js-currency");
+      const rateElement = document.querySelector(".js-rate");
+      const productElement = document.querySelector(".js-product");
+      const currency = currencyElement.value;
+      const rate = rateElement.value;
 
-  const currency = currencyElement.value;
-  const rate = rateElement.value;
-  
-  const product = currency / rate;
-  productElement.innerText = product.toFixed(2);
-};
-
-const changeText = () => {
- resultElement.innerText = "Gratulacje! Posiadasz ";
-};
-
+      productElement.innerText = calculateProduct(currency, rate).toFixed(2);
+    };
+    
+    const calculateProduct = (currency, rate) => {
+    
+     return currency / rate;
+    };
+      
     const init = () => {
+      const formElement = document.querySelector(".js-form");
+
       console.log("Cześć!");
-      formElement.addEventListener("submit", calculateProduct, changeText); 
-      formElement.addEventListener("submit", changeText); 
+      formElement.addEventListener("submit", updateResultText); 
+      formElement.addEventListener("submit", printProduct);
     };  
     
     init();
