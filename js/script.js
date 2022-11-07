@@ -2,32 +2,36 @@
       const resultElement = document.querySelector(".js-result");
  
       resultElement.innerText = "Gratulacje! Posiadasz ";
-    
     };
 
-    const printProduct = (event) => {
-      event.preventDefault();
-      
+    const calculateProduct = () => {
       const currencyElement = document.querySelector(".js-currency");
       const rateElement = document.querySelector(".js-rate");
-      const productElement = document.querySelector(".js-product");
+      
       const currency = currencyElement.value;
       const rate = rateElement.value;
 
+      return currency / rate;
+    };
+
+    const printProduct = (currency, rate) => {
+      const productElement = document.querySelector(".js-product");
+      
       productElement.innerText = calculateProduct(currency, rate).toFixed(2);
     };
-    
-    const calculateProduct = (currency, rate) => {
-    
-     return currency / rate;
-    };
       
+    const onFormSubmit = (event) => {
+      event.preventDefault();
+      
+      updateResultText();
+      printProduct();
+    };
+
     const init = () => {
       const formElement = document.querySelector(".js-form");
 
       console.log("Cześć!");
-      formElement.addEventListener("submit", updateResultText); 
-      formElement.addEventListener("submit", printProduct);
+      formElement.addEventListener("submit", onFormSubmit); 
     };  
     
     init();
